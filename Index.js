@@ -16,8 +16,3 @@ app.use("/api/province",ProvinceRouter);
 app.listen(port,()=> {
     console.log(`Example app listening on port${port}`)
 })
-
-//Endpoints funcionales
-app.get("/api/province", (req, res) => {
-    res.status(200).send();
-})
