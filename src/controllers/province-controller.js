@@ -28,10 +28,12 @@ router.get('/:id', async (req, res) =>{
 
 router.post('', async (req, res) =>{
     let respuesta;
-    const returnArray = await svc.createAsync();
+    let entity = req.body;
+    const returnArray = await svc.createAsync(entity);
+    console.log(returnArray);
     if (returnArray != null)
     {
-        respuesta = res.status(200).json(returnArray);
+        respuesta = res.status(200).send('La provincia fue creada con exito');
     }
     else respuesta = res.status(500).send('Error interno')
     return respuesta;
@@ -39,10 +41,11 @@ router.post('', async (req, res) =>{
 
 router.put('', async (req, res) =>{
     let respuesta;
-    const returnArray = await svc.updateAsync();
+    let entity = req.body;
+    const returnArray = await svc.updateAsync(entity);
     if (returnArray != null)
     {
-        respuesta = res.status(200).json(returnArray);
+        respuesta = res.status(200).send('La provincia fue modificada con exito');
     }
     else respuesta = res.status(500).send('Error interno')
     return respuesta;
@@ -54,7 +57,7 @@ router.delete('/:id', async (req, res) =>{
     const returnArray = await svc.deleteByIdAsync(id);
     if (returnArray != null)
     {
-        respuesta = res.status(200).json(returnArray);
+        respuesta = res.status(200).send('La provincia fue eliminada con exito')
     }
     else respuesta = res.status(500).send('Error interno')
     return respuesta;

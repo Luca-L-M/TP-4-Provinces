@@ -2,8 +2,8 @@ import express from"express";
 import cors from"cors";
 import ProvinceRouter from"./src/controllers/province-controller.js";
 
-constapp=express();
-constport=3000; //El puerto 3000 (http://localhost:3000)
+const app=express();
+const port=3000; //El puerto 3000 (http://localhost:3000)
 
 //Agrego los Middlewares
 app.use(cors()); //Middleware de CORS.
